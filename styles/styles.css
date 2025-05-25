@@ -32,7 +32,7 @@ html {
 
 /** Body */
 body {
-    background-color: #2977a4;
+    background-color: #C96868;
     color: #D0E0E3;
 }
 
@@ -53,21 +53,22 @@ h2 {
     line-height: 1.5;
     font-weight: 700;
     text-align: center;
+    
 }
 
-h2 {
-    font-size: 3em;
-    color: #2977a4;
-}
 
 /** Main */
+main h2 {
+    color: #3b565b;
+    font-size: 2.8rem;
+    padding: 5px;
+}
+
 main {
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
-    align-items: flex-start;
+   
     padding: 4em 2em;
     background-color: #FFF;
+    min-height: 45vh;
 }
 
 main p {
@@ -119,29 +120,66 @@ main ul li em {
     font-style: italic;
 }
 
-main button {
+
+nav {
+    display: flex;
+    justify-content: center;
+    gap: 3rem;
+    flex-wrap: wrap;
+    padding: 2rem;
+    background-color: #FADFA1;
+    
+}
+
+
+
+/* main button  */
+nav button {
     margin: .5em 0;
-    border: none;
+    border: solid #7EACB5;
     border-radius: .5em;
+    font-weight: bold;
     padding: .25em .5em;
-    background: #2977a4;
+    background: #FFF4EA;
     cursor: pointer;
     font-size: 2.4em;
     line-height: 1.5;
     text-align: center;
-    color: #D0E0E3;
+    box-shadow: 10px 10px 13px 6px rgba(0,0,0,0.71);
+    -webkit-box-shadow: 10px 10px 13px 6px rgba(0,0,0,0.71);
+    -moz-box-shadow: 10px 10px 13px 6px rgba(0,0,0,0.71);
 }
+
+nav button:hover {
+    background: #e39246;
+}
+
+.pista-larga {
+    color: rgb(88, 23, 78);
+    background-color: #c968687c;
+    outline: 0.1rem solid #fffffffd;
+    border-radius: 1rem;
+}
+
+.pista-larga::after {
+  content: "[+ 3 min]";
+  display: block;
+  text-align: end;
+  font-weight: bold;
+}
+
 
 main div.galeria {
     display: flex;
     flex-wrap: wrap;
     flex-direction: column;
-    justify-content: space-between;
+    justify-content: center;
+    gap: 25px;
     align-items: center;
     margin: 1em 0;
     width: 100%;
     padding: 1em;
-    background: rgba(19,79,92,.5);
+    background: #7EACB5;
 }
 
 main div.galeria > img {
@@ -163,15 +201,21 @@ main div.galeria div {
     align-self: center;
     width: 90%;
     padding: 1em;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    border: 0.5rem solid #c96868;
+    border-radius: 1rem;
+    background-color: #FADFA1;
+    outline: 0.5rem solid #fffffffd;
 }
 
 main div.galeria div img {
-    width: 100%;
+    width: 74%;
+    margin: auto;
 }
 
 main div.galeria div h3 {
     padding: .5em;
-    font-size: 3.2em;
+    font-size: 2rem;
     text-align: center;
     color: #134F5C;
 }
@@ -180,6 +224,14 @@ main div.galeria div p {
     padding: 1em;
     font-size: 1.6em;
     text-align: center;
+}
+
+ol, ol li {
+    color: black;
+    padding: 1rem;
+    margin: 1rem;
+    font-family: 'Montserrat';
+    font-size: 1.2em;
 }
 
 main hr {
