@@ -114,7 +114,7 @@ function mostrar() {
             let pistaItem = document.createElement('li');
             let minutos = Math.floor(pista.duracion / 60);
             let segundos = pista.duracion % 60;
-            let tiempo = `${minutos}:${segundos < 10 ? '0' + segundos : segundos}`;
+            let tiempo = `${minutos < 10 ? '0' + minutos : minutos}:${segundos < 10 ? '0' + segundos : segundos}`;
 
             // Si la pista dura mas de 3 minutos le agrego la clase pista-larga
             if (pista.duracion > 180) {
