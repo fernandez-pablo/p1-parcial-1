@@ -46,6 +46,6 @@ class Disco {
         let horas = Math.floor(segundosTotales / 3600);
         let minutos = Math.floor((segundosTotales % 3600) / 60);
         let segundos = segundosTotales % 60;
-        return `${horas}:${minutos < 10 ? '0' + minutos : minutos}:${segundos < 10 ? '0' + segundos : segundos}`;
+        return `${horas < 10 ? '0' + horas : horas}:${minutos < 10 ? '0' + minutos : minutos}:${segundos < 10 ? '0' + segundos : segundos}`;
     }
 }
