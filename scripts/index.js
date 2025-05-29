@@ -72,8 +72,60 @@ function cargar() {
 }
 
 
+/**
+ * funcion buscar disco por ID
+*/
+function buscarDisco() {
+  let dato;
+  do {
+     dato = parseInt(prompt("Ingrese el código único del disco (entre 1 y 999):"));
+    } while (!dato);
 
+  const discoId = discos.find(disco =>disco.id == dato);
 
+  if (discoId) {
+    
+    let container = document.getElementById('discos');
+    container.innerHTML = '';
+    
+    let discoDiv = document.createElement('div');
+    discoDiv.classList.add('disco');
+    discoDiv.innerHTML = `
+            <img src="${discoId.portada}" alt="Portada de ${discoId.nombre}" width="100">
+            <h2>${discoId.nombre}</h2>
+            <h3>Autor: ${discoId.artista}</h3>
+            <h3>Codigo: ${discoId.id}</h3>
+            <h3>Cantidad de pistas: ${discoId.pistas.length}</h3>
+            <h3>Duración total: ${discoId.formatearDuracion(discoId.duracionTotal())}</h3>
+            <h3>Promedio: ${discoId.formatearDuracion(discoId.duracionPromedio())}</h3>
+            <h3>Pista más larga: ${discoId.pistaMasLarga().nombre}</h3>
+            <h3>Pistas: </h3>
+        `;
+
+        // Pistas
+    let listaPistas = document.createElement('ol');
+    discoId.pistas.forEach(pista => {
+            let pistaItem = document.createElement('li');
+            let minutos = Math.floor(pista.duracion / 60);
+            let segundos = pista.duracion % 60;
+            let tiempo = `${minutos < 10 ? '0' + minutos : minutos}:${segundos < 10 ? '0' + segundos : segundos}`;
+
+            // Si la pista dura mas de 3 minutos le agrego la clase pista-larga
+            if (pista.duracion > 180) {
+                pistaItem.classList.add('pista-larga');
+            }
+            pistaItem.textContent = `${pista.nombre} - ${tiempo}`;
+            listaPistas.appendChild(pistaItem);
+        });
+        //agrego al <ol> que va a contener las pistas <li> al div de cada disco y luego a la galeria
+        discoDiv.appendChild(listaPistas);
+        container.appendChild(discoDiv);
+  };
+
+  
+  
+
+}
 
 /**
  * Llamada desde un boton. Muestra todos los discos disponibles.
